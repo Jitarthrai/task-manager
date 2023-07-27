@@ -120,6 +120,9 @@ body {
     font-family: 'Quicksand', sans-serif;
     color: #808080;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
 }
 
 #list-item{
@@ -127,6 +130,7 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     margin-bottom: 15px;
+    width: 100%;
 }
 #list-item span{
     margin-top: -5px    ;
@@ -173,3 +177,18 @@ li input[type="checkbox"]:checked + span{
 #dropdown{
     border-radius: 0%;
 }
+
+  
+
+  #delete-button{
+    border: none;
+    background-color: none;
+    color: none;
+  }
+
+  .checkmark:hover{
+    cursor: pointer;
+    background-color:#A6D0DD;
+    color: white;
+
+  }

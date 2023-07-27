@@ -4,6 +4,7 @@ import ejs from "ejs";
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.set('view engine', 'ejs');
 var tasks =[];
 var tasksWork =[];
 const d = new Date();
@@ -61,6 +62,17 @@ app.post("/work", (req, res) => {
  
  
  res.redirect("/work")
+})
+
+app.post("/delete/:index", (req, res) => {
+  const index = req.params.index;
+
+  if ( index >= 0 && index < tasks.length){
+    tasks.splice(index, 1);
+    res.redirect(
+      "/"
+    )
+  }
 })
 
 

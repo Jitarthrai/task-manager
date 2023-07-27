@@ -13,6 +13,7 @@
     <title>To Do List</title>
 </head>
 <body>
+  
     <div class="patterns pt1">
         <div class="dropdown pt-3 ps-3" id="dropdown">
             <button class="btn btn-secondary dropdown-toggle .text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,20 +33,25 @@
             <div  id="outer-div" >
             <ul  id="ul-tasks">
                 <div id="list-div"  >
-                    <% inputTasks.forEach(function(result){ %>
-                        <div id="list-item">
-                           <li>
-                            <input type="checkbox" id="checkbox" >
-                                
-                           
-                                    <span class="checkmark"> <%= result %> </span></br>
-                           </li>
-                                
-                            
-                             
-                        </div>
-                    
-                    <%  }); %>
+                   <!-- Inside the <div id="list-div"> -->
+                            <% inputTasks.forEach(function(result, index) { %>
+                                <div id="list-item">
+                                <li>
+                                  <div id="checkbox-task">
+                                    <input type="checkbox" id="checkbox<%= index %>" class="task-checkbox">
+                                    <span class="checkmark" onclick="toMarkCheck(index)"><%= result %></span>
+                                  </div>
+                                    <div id="delete-div">
+                                      <form action="/delete/<%= index %>" method="post">
+                                      <button id="delete-button"><img height="12px" src="images/trash.svg" alt="trash"/></button>
+                                    </form>
+                                    </div>
+                                    
+                                    
+                                </li>
+                                </div>
+                            <% }); %>
+  
                 </div>
                     
             
@@ -72,9 +78,18 @@
     
     <p class="text-center text-body-secondary">Made with 💖 by Jitarth</p>
   </footer>
-
-
+   <script>
+    function toMarkCheck(index){
+      console.log("clicked");
+      const checkboxClicked = document.querySelector("#checkbox"+index);
+      if (checkboxClicked.checked = true ){
+      checkboxClicked.prop('checked', false);
+    } else {
+      checkboxClicked.prop('checked', true);
+    }}
+   </script>
+  <script src="./javascript/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<script src="./index.js"></script>
+
 </body>
 </html>
