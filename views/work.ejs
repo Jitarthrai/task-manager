@@ -32,14 +32,21 @@
             <div  id="outer-div" >
             <ul  id="ul-tasks">
                 <div id="list-div"  >
-                    <% inputTasksWork.forEach(function(result){ %>
+                    <% inputTasksWork.forEach(function(result, index){ %>
                         <div id="list-item">
                            <li>
-                            <input type="checkbox" id="checkbox">
-                                
-                           
-                                    <span class="checkmark"> <%= result %> </span></br>
-                           </li>
+                                  <div id="checkbox-task">
+                                    <input type="checkbox" id="checkbox<%= index %>" class="task-checkbox">
+                                    <span class="checkmark" onclick="toMarkCheck(index)"><%= result %></span>
+                                  </div>
+                                    <div id="delete-div">
+                                      <form action="/work/delete/<%= index %>" method="post">
+                                      <button id="delete-button"><img height="12px" src="images/trash.svg" alt="trash"/></button>
+                                    </form>
+                                    </div>
+                                    
+                                    
+                                </li>
                                 
                             
                              

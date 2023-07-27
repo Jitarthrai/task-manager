@@ -74,6 +74,16 @@ app.post("/delete/:index", (req, res) => {
     )
   }
 })
+app.post("/work/delete/:index", (req, res) => {
+  const index = req.params.index;
+
+  if ( index >= 0 && index < tasksWork.length){
+    tasksWork.splice(index, 1);
+    res.redirect(
+      "/work"
+    )
+  }
+})
 
 
 app.listen(port, () => {
